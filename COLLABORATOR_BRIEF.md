@@ -6,6 +6,11 @@ Taylor — you're the PoE Legend in this clan, so you're getting this first,
 before anyone else. I built us a home base for league launch weekend, and
 I need your eyes on it before Friday.
 
+You shared the official event link — **Path of Exile: Covens of Umbra**
+(https://www.pathofexile.com/covens) — and that's exactly what this is
+built around. Your link is the anchor; the hub is everything around it:
+the countdown, the music, the stream, and the party tools.
+
 ---
 
 ## 👉 The one link that matters
