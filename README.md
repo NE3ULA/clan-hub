@@ -6,6 +6,10 @@ dependencies), GitHub Pages via Actions, browser-local data only.
 
 **Live:** https://ne3ula.github.io/clan-hub/
 **Repo:** NE3ULA/clan-hub
+**Sharing with a collaborator?** Send the one link to
+[COLLABORATOR_BRIEF.md](https://github.com/NE3ULA/clan-hub/blob/main/COLLABORATOR_BRIEF.md)
+— written for Taylor, the clan's PoE Legend: the hub, both mixes, the stream,
+the weekend plan, and exactly what his input is needed on, all on one page.
 
 ## The bigger idea
 
