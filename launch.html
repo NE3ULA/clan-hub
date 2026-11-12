@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Launch Control — Motion Needs No Explanation · Clan Hub</title>
+<meta name="description" content="The control interface for the Motion needs no Explanation post sequence: six posts to the Path of Exile 3.30 launch, with status, captions, and the audio digest." />
+<link rel="manifest" href="./manifest.webmanifest" />
+<meta name="theme-color" content="#0b0908" />
+<link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="./launch.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <p class="micro">Clan Hub · Launch Control</p>
+    <h1>MOTION <span>NEEDS NO EXPLANATION</span></h1>
+    <p class="sub">Six posts to launch. Nothing announces — everything moves.</p>
+  </div>
+  <div class="top-actions">
+    <a class="btn" href="./index.html">← Clan Hub</a>
+    <a class="btn btn-live" href="https://www.twitch.tv/ne3ula_db" target="_blank" rel="noopener">▶ Twitch</a>
+  </div>
+</header>
+
+<main>
+  <section class="card launch-hero">
+    <img class="note-photo" src="./assets/motion-note.jpg" alt="Jesse's purple sticky note, handwritten: Motion needs no Explanation" />
+    <div>
+      <h2>▶ Listen to the sequence</h2>
+      <p class="lead">Two minutes, post by post — the whole run in your ears.</p>
+      <audio controls preload="metadata" src="./assets/motion-voice.mp3" style="width:100%"></audio>
+      <div class="countdown-box" style="margin-top:14px">
+        <p class="micro">PoE 3.30 launches in</p>
+        <div class="countdown"><div><strong id="cdD">—</strong><span>days</span></div><div><strong id="cdH">—</strong><span>hrs</span></div><div><strong id="cdM">—</strong><span>min</span></div><div><strong id="cdS">—</strong><span>sec</span></div></div>
+        <p class="small dim">Fri Nov 13 · 11:00 AM PST · Covens of Umbra</p>
+      </div>
+      <div class="bar"><div class="bar-fill" id="seqBar" style="width:0%"></div></div>
+      <p class="small" id="seqSummary">0 of 6 posted · 0 approved</p>
+      <div class="row-actions">
+        <button class="btn btn-small" id="copyAllBtn" type="button">Copy full sequence (text)</button>
+        <button class="btn btn-small" id="resetSeqBtn" type="button">Reset statuses</button>
+      </div>
+      <p class="dim small">Tap a post's status to move it: Planned → Captured → Approved → Posted. Nothing here posts anything — approval is still yours, per post, in the app where it goes live (@ne3ula_db).</p>
+    </div>
+  </section>
+
+  <section id="postList" aria-label="Post sequence"></section>
+
+  <footer class="foot">
+    <p class="dim small">Launch Control · Part of <a href="./index.html">Clan Hub</a> · Statuses live only in this browser under <code>clan-hub-v1-posts</code> · Full text: POST_SEQUENCE.md in the repo.</p>
+  </footer>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="./launch.js"></script>
+</body>
+</html>
