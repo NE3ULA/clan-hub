@@ -13,6 +13,13 @@ the countdown, the music, the stream, and the party tools.
 
 ---
 
+## 👑 See the bigger vision first (2 minutes)
+
+**The Music Headquarters** — the concept of the Nova Labs / NE3ULA Studio in
+Southern California as this clan's music HQ, with you as the Legend and
+NE3ULA as Overlord of Music:
+https://ne3ula.github.io/clan-hub/headquarters.html
+
 ## 👉 The one link that matters
 
 ### https://ne3ula.github.io/clan-hub/
