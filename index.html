@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Clan Hub — Lords of Chaos · PoE League Weekend ’26</title>
+<meta name="description" content="Lords of Chaos clan hub for Path of Exile league launches: NE3ULA mixes on Spotify & SoundCloud, live stream, Discord party finder and ready check. Built for every release." />
+<link rel="manifest" href="./manifest.webmanifest" />
+<meta name="theme-color" content="#0b0908" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <p class="micro">NE3ULA · Clan Hub — built for every game release</p>
+    <h1>LORDS <span>OF CHAOS</span></h1>
+    <p class="sub" id="clanTagline">One clan. One launch weekend. One soundtrack.</p>
+  </div>
+  <div class="top-actions">
+    <a class="btn btn-discord" id="topDiscordBtn" href="https://discord.com/app" target="_blank" rel="noopener">Join Discord</a>
+    <a class="btn btn-live" id="topLiveBtn" href="https://www.twitch.tv/ne3ula_db" target="_blank" rel="noopener">▶ Watch Live</a>
+  </div>
+</header>
+
+<nav class="mainnav" aria-label="Main">
+  <button class="navbtn is-active" data-view="warroom" type="button">⚔️ War Room</button>
+  <button class="navbtn" data-view="music" type="button">🎧 Music</button>
+  <button class="navbtn" data-view="live" type="button">🔴 Live</button>
+  <button class="navbtn" data-view="party" type="button">💬 Discord / Party</button>
+  <button class="navbtn" data-view="plan" type="button">✅ Plan</button>
+</nav>
+
+<main>
+  <!-- WAR ROOM -->
+  <section class="view is-active" id="view-warroom" aria-label="War Room">
+    <div class="hero card">
+      <div class="hero-main">
+        <p class="micro" id="eventKicker">Path of Exile · 3.30 — Covens of Umbra</p>
+        <h2 id="eventTitle">League Weekend ’26</h2>
+        <p id="eventDesc" class="lead"></p>
+        <div class="chips" id="mechanicChips"></div>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-goto="music" type="button">🎧 Play the Mix</button>
+          <button class="btn" data-goto="party" type="button">Find a Party</button>
+          <a class="btn btn-ghost" id="officialBtn" href="https://www.pathofexile.com/covens" target="_blank" rel="noopener">Official League Page ↗</a>
+        </div>
+      </div>
+      <div class="countdown-box">
+        <p class="micro" id="countdownLabel">League launches in</p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div><strong id="cdD">—</strong><span>days</span></div>
+          <div><strong id="cdH">—</strong><span>hrs</span></div>
+          <div><strong id="cdM">—</strong><span>min</span></div>
+          <div><strong id="cdS">—</strong><span>sec</span></div>
+        </div>
+        <p class="small dim" id="launchLabel"></p>
+        <p class="live-pill" id="livePill" hidden>🔴 LEAGUE IS LIVE</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <article class="card">
+        <h3>🗓️ Weekend Run</h3>
+        <div id="scheduleList"></div>
+        <button class="btn btn-small" id="copyScheduleBtn" type="button">Copy schedule for Discord</button>
+      </article>
+      <article class="card">
+        <h3>🎙️ Your Host — NE3ULA</h3>
+        <p>NE3ULA brings the soundtrack and the stream to the clan for every big release: a custom mix per launch, live on Twitch, and this hub as home base.</p>
+        <p class="dim small">This is event #1. The same hub powers the next release — new game, new mix, new stream, same clan.</p>
+        <div class="stack">
+          <button class="btn btn-small" data-goto="live" type="button">Go to Live Stream</button>
+          <button class="btn btn-small" id="shareHubBtn" type="button">Share this Hub</button>
+        </div>
+        <label class="field"><span>Next release in this system</span>
+          <select id="eventSelect" aria-label="Choose event"></select>
+        </label>
+      </article>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="view" id="view-music" aria-label="Music">
+    <div class="card">
+      <h2>🎧 The Soundtrack</h2>
+      <p class="lead">Two ways to listen — same Lord of Kaos energy. Press play here, or open in your app.</p>
+      <div class="toggle" role="group" aria-label="Choose player">
+        <button class="togglebtn is-active" data-player="spotify" type="button">Spotify</button>
+        <button class="togglebtn" data-player="soundcloud" type="button">SoundCloud</button>
+      </div>
+
+      <div class="player-pane" id="pane-spotify">
+        <h3 id="spotifyTitle">Spotify Mix</h3>
+        <p class="dim small" id="spotifyMeta"></p>
+        <div class="embed-wrap"><iframe id="spotifyEmbed" title="Spotify playlist" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+        <div class="row-actions">
+          <a class="btn btn-primary" id="spotifyOpen" href="#" target="_blank" rel="noopener">Open in Spotify ↗</a>
+          <button class="btn" data-copy-playlists type="button">Copy for Discord</button>
+        </div>
+      </div>
+
+      <div class="player-pane" id="pane-soundcloud" hidden>
+        <h3 id="scTitle">SoundCloud Mix</h3>
+        <p class="dim small" id="scMeta"></p>
+        <div class="embed-wrap"><iframe id="scEmbed" title="SoundCloud playlist" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"></iframe></div>
+        <div class="row-actions">
+          <a class="btn btn-primary" id="scOpen" href="#" target="_blank" rel="noopener">Open in SoundCloud ↗</a>
+          <button class="btn" data-copy-playlists type="button">Copy for Discord</button>
+        </div>
+      </div>
+      <p class="dim small" id="noMixNote" hidden>No mix dropped for this event yet — it will appear here first.</p>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section class="view" id="view-live" aria-label="Live Stream">
+    <div class="card">
+      <div class="live-head">
+        <h2>🔴 Live Stream</h2>
+        <span class="badge" id="liveBadge">Offline — check schedule</span>
+      </div>
+      <p class="lead" id="liveDesc">Watch NE3ULA run the league live. Chat, drops, and the mix — all in one place.</p>
+      <div class="embed-wrap video" id="twitchWrap">
+        <iframe id="twitchEmbed" title="Twitch stream" allowfullscreen height="100%" width="100%" frameborder="0"></iframe>
+      </div>
+      <p class="dim small" id="twitchFallback"></p>
+      <div class="row-actions">
+        <a class="btn btn-primary" id="twitchOpen" href="https://www.twitch.tv/ne3ula_db" target="_blank" rel="noopener">Open on Twitch ↗</a>
+        <button class="btn" id="copyStreamBtn" type="button">Copy “Going Live” post for Discord</button>
+        <button class="btn btn-ghost" id="toggleLiveBtn" type="button">Host: mark stream LIVE</button>
+      </div>
+      <div class="grid2 inner">
+        <label class="field"><span>Twitch channel (host setting, saved on this device)</span>
+          <input id="twitchChannelInput" placeholder="ne3ula_db" autocomplete="off" />
+        </label>
+        <label class="field"><span>Stream title for Discord post</span>
+          <input id="streamTitleInput" placeholder="PoE 3.30 League Start — Lords of Chaos Run" />
+        </label>
+      </div>
+      <button class="btn btn-small" id="saveStreamBtn" type="button">Save stream settings</button>
+    </div>
+  </section>
+
+  <!-- DISCORD / PARTY -->
+  <section class="view" id="view-party" aria-label="Discord and Party Finder">
+    <div class="card">
+      <h2>💬 Discord Hub</h2>
+      <p class="lead">Everything here is built to flow into Discord: set your server once, then every post below is one tap → paste in Discord.</p>
+      <div class="grid2 inner">
+        <label class="field"><span>Discord invite link</span><input id="discordInviteInput" placeholder="https://discord.gg/…" autocomplete="off" /></label>
+        <label class="field"><span>Discord Server ID (for live widget)</span><input id="discordServerIdInput" placeholder="e.g. 123456789012345678" autocomplete="off" /></label>
+        <label class="field"><span>Voice channel name</span><input id="discordVoiceInput" placeholder="e.g. League Start Voice" autocomplete="off" /></label>
+        <div class="field"><span>Discord widget</span><p class="dim small">Server Settings → Widget → copy Server ID, enable widget. Paste ID above and the real member list appears below.</p></div>
+      </div>
+      <div class="row-actions">
+        <button class="btn btn-primary" id="saveDiscordBtn" type="button">Save Discord settings</button>
+        <a class="btn" href="https://discord.com/app" target="_blank" rel="noopener">Open Discord ↗</a>
+        <button class="btn" data-copy-playlists type="button">Copy Playlist Pack for Discord</button>
+      </div>
+      <div id="discordWidgetWrap" class="widget-wrap" hidden>
+        <iframe id="discordWidget" title="Discord server widget" width="100%" height="380" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      </div>
+      <p class="dim small" id="discordWidgetHint">No Server ID saved yet — add it above to show your live Discord widget here.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚔️ Party Finder — LFG Board</h3>
+      <form id="lfgForm" class="form-grid">
+        <input id="lfgName" required maxlength="60" placeholder="IGN / character name *" aria-label="Character name" />
+        <input id="lfgBuild" required maxlength="80" placeholder="Build / ascendancy *" aria-label="Build" />
+        <input id="lfgLevel" maxlength="20" placeholder="Level (e.g. 72)" aria-label="Level" />
+        <select id="lfgActivity" aria-label="Activity">
+          <option>Campaign</option><option>Mapping</option><option>Bossing</option><option>Delve / Side Content</option><option>Chill Music Run</option>
+        </select>
+        <input id="lfgSpots" maxlength="20" placeholder="Spots open (e.g. 3)" aria-label="Spots open" />
+        <input id="lfgNotes" maxlength="140" placeholder="Notes (voice? pace?)" aria-label="Notes" />
+        <button class="btn btn-primary" type="submit">Post to Board</button>
+      </form>
+      <div class="row-actions">
+        <select id="lfgFilter" aria-label="Filter by activity"><option value="all">All activities</option><option>Campaign</option><option>Mapping</option><option>Bossing</option><option>Delve / Side Content</option><option>Chill Music Run</option></select>
+        <button class="btn btn-small" id="copyRosterBtn" type="button">Copy Full Roster for Discord</button>
+      </div>
+      <div id="lfgList" class="lfg-list"></div>
+      <p class="empty" id="lfgEmpty">No parties yet — post the first LFG.</p>
+    </div>
+
+    <div class="card">
+      <h3>✅ Ready Check</h3>
+      <form id="readyForm" class="form-inline">
+        <input id="readyName" required maxlength="60" placeholder="Your name / IGN" aria-label="Your name" />
+        <input id="readyBuild" maxlength="80" placeholder="Build" aria-label="Build" />
+        <button class="btn btn-primary" type="submit">Add Me</button>
+      </form>
+      <div class="bar"><div class="bar-fill" id="readyBar" style="width:0%"></div></div>
+      <p class="small" id="readySummary">0 / 0 ready</p>
+      <div id="readyList" class="ready-list"></div>
+      <button class="btn btn-small" id="copyReadyBtn" type="button">Copy Ready Check for Discord</button>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section class="view" id="view-plan" aria-label="Plan and Checklist">
+    <div class="card">
+      <h2>✅ League-Start Checklist</h2>
+      <p class="dim">Saved on this device. Check it off before queue opens.</p>
+      <div id="checklist"></div>
+      <button class="btn btn-small" id="resetChecklistBtn" type="button">Reset checklist</button>
+    </div>
+    <div class="card">
+      <h3>🚀 Host Playbook — Future Releases</h3>
+      <ol class="playbook">
+        <li><strong>Pick the release</strong> — add it as a new event in <code>data.js</code> (game, date, official link).</li>
+        <li><strong>Drop the mix</strong> — NE3ULA playlist on Spotify + SoundCloud, paste both links into that event.</li>
+        <li><strong>Set the stream</strong> — Twitch channel + stream title in the Live tab.</li>
+        <li><strong>Wire Discord</strong> — invite + Server ID in the Discord tab, widget goes live.</li>
+        <li><strong>Launch</strong> — share the hub link in Discord, copy the Going Live post, run the weekend.</li>
+      </ol>
+      <p class="dim small">One hub, every release. No new app to build — just a new event.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="dim small">Clan Hub · Lords of Chaos · Soundtrack & stream by NE3ULA · Data (parties, ready check, settings, checklist) is stored only in this browser under <code>clan-hub-v1</code>. Export your board by copying it to Discord.</p>
+    <p class="dim small" id="buildStamp"></p>
+  </footer>
+</main>
+
+<nav class="bottomnav" aria-label="Mobile">
+  <button class="navbtn is-active" data-view="warroom" type="button">⚔️<span>War Room</span></button>
+  <button class="navbtn" data-view="music" type="button">🎧<span>Music</span></button>
+  <button class="navbtn" data-view="live" type="button">🔴<span>Live</span></button>
+  <button class="navbtn" data-view="party" type="button">💬<span>Party</span></button>
+  <button class="navbtn" data-view="plan" type="button">✅<span>Plan</span></button>
+</nav>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}</script>
+</body>
+</html>
